@@ -3,7 +3,8 @@ import { getLevel, MAX_SCORE, levels } from "../data/levels";
 function buildLinkedInPost(score, levelName, percentile) {
   return `I just took the AI Competence Assessment and scored ${Math.round(score)}/${MAX_SCORE} — landing at the ${levelName} level (top ${100 - percentile}% of professionals).
 
-Curious where you sit? ${window.location.href}
+Curious where you sit? Take the quiz here:
+${window.location.origin}
 
 #AICompetence #FutureOfWork #AI`;
 }
