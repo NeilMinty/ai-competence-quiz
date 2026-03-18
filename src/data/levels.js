@@ -8,9 +8,9 @@ export const levels = [
     percentile: 25,
     description: "You're using AI reactively — prompting when needed but not yet building systematic habits.",
     nextSteps: [
-      "Build your first dedicated prompt: Pick one repeatable task and build a Claude prompt for it. Save it. Use it every time instead of starting from scratch.",
-      "Set up Claude memory: Add three facts about how you work and what good output looks like for you into Claude's memory settings.",
-      "Ship something with Lovable: Build one simple tool without writing any code. Ship it even if it's imperfect.",
+      "Build your first dedicated prompt: Pick one repeatable task and write a prompt for it. Save it. Use it every time instead of starting from scratch.",
+      "Set up persistent context: Add three facts about how you work and what good output looks like for you into your AI tool's memory or system prompt settings.",
+      "Ship something without writing code: Build one simple tool using a no-code AI builder. Ship it even if it's imperfect.",
     ],
   },
   {
@@ -30,8 +30,8 @@ export const levels = [
     percentile: 80,
     description: "You design AI-augmented workflows and think in systems, not just individual prompts.",
     nextSteps: [
-      "Deploy something real: Get an app to a real URL someone else can access. Railway, Vercel, or Render. Understand environment variables.",
-      "Install Claude Code: Use it to audit a codebase you've built. Read the output and act on the criticals.",
+      "Deploy something real: Get an app to a real URL someone else can access. Understand environment variables and what it takes to move from local to live.",
+      "Audit a codebase you've built: Use an AI coding assistant to review it. Read the output and act on the criticals.",
       "Build one automated process: Something that runs on a schedule without you triggering it. Prove the system works while you're not watching.",
     ],
   },
@@ -43,7 +43,7 @@ export const levels = [
     nextSteps: [
       "Build a system with memory: Not just stores data — uses historical output to inform future output.",
       "Design an agent architecture: Multiple tools passing context to each other. Define what each is responsible for and what it hands off.",
-      "Write a CLAUDE.md: Encode your domain expertise as standing instructions. The AI should know what good looks like for your specific context before you say a word.",
+      "Write a standing instructions document: Encode your domain expertise so the AI knows what good looks like for your specific context before you say a word. Most tools support this — use it.",
     ],
   },
   {
