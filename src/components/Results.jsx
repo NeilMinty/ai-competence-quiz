@@ -1,39 +1,9 @@
-import { useState } from "react";
 import { getLevel, MAX_SCORE, levels } from "../data/levels";
 
-const QUIZ_URL = "https://ai-competence-quiz.vercel.app";
-
-function buildLinkedInPost(score, levelName, percentile) {
-  return `I just took the AI Competence Assessment and scored ${Math.round(score)}/${MAX_SCORE} — landing at the ${levelName} level (top ${100 - percentile}% of professionals).
-
-Curious where you sit? Take the quiz here:
-${QUIZ_URL}
-
-#AICompetence #FutureOfWork #AI`;
-}
-
 export default function Results({ score, onRetake }) {
-  const [copied, setCopied] = useState(false);
-
   const rounded = Math.round(score * 10) / 10;
   const level = getLevel(rounded);
   const levelIndex = levels.findIndex((l) => l.name === level.name);
-
-  async function handleShare() {
-    const post = buildLinkedInPost(rounded, level.name, level.percentile);
-    try {
-      await navigator.clipboard.writeText(post);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 4000);
-    } catch {
-      // clipboard unavailable — open LinkedIn anyway
-    }
-    window.open(
-      `https://www.linkedin.com/feed/?shareActive=true&text=${encodeURIComponent(post)}`,
-      "_blank",
-      "noopener"
-    );
-  }
 
   return (
     <div className="results-container">
@@ -85,14 +55,6 @@ export default function Results({ score, onRetake }) {
 
       {/* Actions */}
       <div className="results-actions">
-        <div className="share-wrapper">
-          <button className="share-btn" onClick={handleShare}>
-            Share on LinkedIn
-          </button>
-          {copied && (
-            <p className="share-hint">Post copied to clipboard — paste it into LinkedIn with Cmd+V</p>
-          )}
-        </div>
         <button className="retake-btn" onClick={onRetake}>
           Retake quiz
         </button>
