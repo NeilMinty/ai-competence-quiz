@@ -10,7 +10,7 @@ export const levels = [
     nextSteps: [
       "Build your first dedicated prompt: Pick one repeatable task and write a prompt for it. Save it. Use it every time instead of starting from scratch.",
       "Set up persistent context: Add three facts about how you work and what good output looks like for you into your AI tool's memory or system prompt settings.",
-      "Ship something without writing code: Build one simple tool using a no-code AI builder. Ship it even if it's imperfect.",
+      "Ship something without writing code: Use a natural language app builder — Lovable, Base44, or Bolt — describe what you want and deploy it. Ship it even if it's imperfect.",
     ],
   },
   {
