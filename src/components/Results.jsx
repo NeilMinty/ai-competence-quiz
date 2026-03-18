@@ -1,10 +1,12 @@
 import { getLevel, MAX_SCORE, levels } from "../data/levels";
 
+const QUIZ_URL = "https://ai-competence-quiz.vercel.app";
+
 function buildLinkedInPost(score, levelName, percentile) {
   return `I just took the AI Competence Assessment and scored ${Math.round(score)}/${MAX_SCORE} — landing at the ${levelName} level (top ${100 - percentile}% of professionals).
 
 Curious where you sit? Take the quiz here:
-${window.location.origin}
+${QUIZ_URL}
 
 #AICompetence #FutureOfWork #AI`;
 }
@@ -18,8 +20,9 @@ export default function Results({ score, onRetake }) {
   const levelIndex = levels.findIndex((l) => l.name === level.name);
 
   function handleShare() {
-    const text = encodeURIComponent(buildLinkedInPost(rounded, level.name, level.percentile));
-    window.open(`https://www.linkedin.com/feed/?shareActive=true&text=${text}`, "_blank", "noopener");
+    const post = buildLinkedInPost(rounded, level.name, level.percentile);
+    navigator.clipboard.writeText(post).catch(() => {});
+    window.open(`https://www.linkedin.com/feed/?shareActive=true&text=${encodeURIComponent(post)}`, "_blank", "noopener");
   }
 
   return (
@@ -73,7 +76,7 @@ export default function Results({ score, onRetake }) {
       {/* Actions */}
       <div className="results-actions">
         <button className="share-btn" onClick={handleShare}>
-          Share on LinkedIn
+          Share on LinkedIn — post copied, just paste
         </button>
         <button className="retake-btn" onClick={onRetake}>
           Retake quiz
