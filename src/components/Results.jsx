@@ -18,7 +18,7 @@ export default function Results({ score, onRetake }) {
 
   function handleShare() {
     const text = encodeURIComponent(buildLinkedInPost(rounded, level.name, level.percentile));
-    window.open(`https://www.linkedin.com/sharing/share-offsite/?text=${text}`, "_blank", "noopener");
+    window.open(`https://www.linkedin.com/feed/?shareActive=true&text=${text}`, "_blank", "noopener");
   }
 
   return (
