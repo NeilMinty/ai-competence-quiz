@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import Intro from "./components/Intro";
 import Quiz from "./components/Quiz";
 import Results from "./components/Results";
@@ -28,6 +29,7 @@ export default function App() {
       {screen === SCREEN.INTRO && <Intro onStart={handleStart} />}
       {screen === SCREEN.QUIZ && <Quiz onComplete={handleComplete} />}
       {screen === SCREEN.RESULTS && <Results score={finalScore} onRetake={handleRetake} />}
+      <Analytics />
     </div>
   );
 }
